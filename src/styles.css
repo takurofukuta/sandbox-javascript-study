@@ -1,0 +1,58 @@
+body {
+  font-family: sans-serif;
+}
+
+input {
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+}
+
+button {
+  border-radius: 16px;
+  border: none;
+}
+
+button:hover {
+  background-color: #ff7fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+}
+
+.input-area {
+  background-color: #d5f051;
+  width: 400px;
+  height: 30px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.incompleted-task {
+  background-color: #81edf0;
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.completed-task {
+  background-color: #f0955d;
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+}
