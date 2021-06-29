@@ -21,16 +21,30 @@ const addTask = () => {
   completeButton.innerText = "完了";
   completeButton.className = "complete-button";
   completeButton.addEventListener("click", () => {
-    alert("完了");
+    deleteFromUncompleteTask(deleteButton.parentNode.parentNode);
+    const addTarget = completeButton.parentNode.parentNode;
+    const text = addTarget.firstElementChild.firstElementChild.innerText;
+    addTarget.textContent = null;
+
+    const div = document.createElement("div");
+    div.className = "list-row";
+    const p = document.createElement("p");
+    p.innerText = text;
+    const returnButton = document.createElement("button");
+    returnButton.innerText = "戻す";
+    div.appendChild(p);
+    div.appendChild(returnButton);
+    addTarget.appendChild(div);
+
+    // 完了リストに追加
+    document.getElementById("completed-task").appendChild(addTarget);
   });
 
   // button(削除)タグを生成
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", () => {
-    const deleteTarget = deleteButton.parentNode.parentNode;
-    console.log(deleteTarget);
-    document.getElementById("uncompleted-task").removeChild(deleteTarget);
+    deleteFromUncompleteTask(deleteButton.parentNode.parentNode);
   });
 
   li.appendChild(div);
@@ -39,6 +53,11 @@ const addTask = () => {
   div.appendChild(deleteButton);
   // 未完了タスクの追加
   document.getElementById("uncompleted-task").appendChild(li);
+};
+
+// 未完了リストから指定の要素を削除
+const deleteFromUncompleteTask = (target) => {
+  document.getElementById("uncompleted-task").removeChild(target);
 };
 
 document
